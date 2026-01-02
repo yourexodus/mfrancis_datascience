@@ -126,13 +126,6 @@ These challenges strengthened my ability to build **production-ready analytical 
 
 ---
 
-## 🚀 Next Steps
-
-- Compare performance with tree-based models (Random Forest, XGBoost)
-- Add lag features for time-series forecasting
-- Deploy results as an interactive dashboard for planners
-
----
 
 📎 **Repository:**  
 https://github.com/yourexodus/mfrancis_datascience
