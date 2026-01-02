@@ -33,6 +33,15 @@ The objective is to **predict the total ridership** of Capital Bikeshare in any 
 * **Baseline Demand:** Even at **0°C**, the model predicts a baseline of approximately **6 rentals** per hour.
 
 ---
+###
+Requirements
+pandas
+numpy
+seaborn
+matplotlib
+scikit-learn
+scipy
+statsmodels
 
 ### Technical Implementation
 * **Algorithm:** Linear Regression (Supervised Learning)
