@@ -1,49 +1,138 @@
-# 🚲 Data Modeling: Supervised Learning
-## Project: Capital Bikeshare Demand Forecasting
+# 🚴 Capital Bikeshare Demand Forecasting  
+### A Supervised Learning Story
 
-### The Problem & Objective
-The objective is to **predict the total ridership** of Capital Bikeshare in any given hour. By accurately forecasting demand, we can create analytical tools to:
-* Optimize **infrastructure planning** (where to build stations).
-* Automate **maintenance scheduling** based on expected wear and tear.
-* Ensure **bike availability** through proactive system rebalancing.
-
-
-
-[Image of a supervised learning process diagram]
-
+🔗 **Notebook:**  
+[View the full Jupyter Notebook](https://github.com/yourexodus/mfrancis_datascience/blob/main/linear_regression/linear_regression.ipynb)
 
 ---
 
-### Core Q&A
-**What are we predicting?** The `total_rentals` (count) per hour.
+## 📖 The Challenge
 
-**What are the key drivers (Features)?** Weather conditions, temperature, humidity, and whether it is a working day or holiday.
+The goal of this project was to solve a real-world logistics problem:
 
-**What does one row represent?** One specific hour of one day.
+**Can we predict how many bikes will be rented in a given hour based on the weather?**
 
-**Is the data clean?** Yes. I renamed the target variable to `total_rentals` to avoid coding conflicts and ensured the `datetime` index was properly formatted for time-series analysis.
+By accurately forecasting hourly bikeshare demand, we can:
+- Improve infrastructure planning
+- Ensure bike availability during peak demand
+- Optimize maintenance and redistribution schedules
+
+This project applies **supervised machine learning** to transform raw bikeshare and weather data into actionable operational insights.
+
+---
+
+## 🛠️ The Technical Journey
+
+This project followed a rigorous end-to-end machine learning workflow, moving from raw data to interpretable results.
 
 ---
 
-### The Results
+### 🔧 Data Preparation & Cleaning
 
+- Each row represents **one specific hour of one day**
+- Converted and formatted the datetime index for time-series analysis
+- Renamed the target variable to `total_rentals` for clarity and consistency
 
-
-* **Temperature Impact:** For every **1°C increase** in temperature, the model shows an average increase of **9.17 rentals**.
-* **Baseline Demand:** Even at **0°C**, the model predicts a baseline of approximately **6 rentals** per hour.
+![Rename Columns](images/renameColumns.jpg)
 
 ---
-###
-Requirements
-pandas
-numpy
-seaborn
-matplotlib
-scikit-learn
-scipy
-statsmodels
 
-### Technical Implementation
-* **Algorithm:** Linear Regression (Supervised Learning)
-* **Tools:** Python, Scikit-Learn, Pandas
-* **Evaluation:** Coefficients ($\beta_1$) and Intercepts ($\beta_0$) were validated against real-world logic.
+### 🔍 Exploratory Data Analysis (EDA)
+
+EDA was used to uncover relationships between weather variables and bikeshare demand.
+
+- Scatter plots revealed linear trends between temperature and rentals
+- Heatmaps exposed correlation strength across features
+
+![Feature Correlation Heatmap](images/heatmap.jpg)
+
+![Heatmap After Removing Highly Correlated Features](images/heatmapwithannot.jpg)
+
+![Temperature vs Rentals Scatter Plot](images/scatterplot.jpg)
+
+![Seaborn Regression Plot](images/seabornscatterplot.jpg)
+
+---
+
+### ⚠️ The Multicollinearity Trap
+
+A critical issue surfaced during EDA:
+
+- `temp` and `atemp` (“feels like” temperature) were **highly correlated**
+- Including both violates linear regression assumptions
+
+![Feature Comparison](images/comparison.jpg)
+
+✅ **Resolution:**  
+One of the variables was removed to preserve statistical validity and model interpretability.
+
+---
+
+## 📈 Modeling
+
+- Implemented **Linear Regression** using **Scikit-Learn**
+- Chosen for its **high interpretability**, making feature impacts easy to explain to stakeholders
+- Trained on cleaned, non-collinear features
+
+![Final Feature Set](images/features.jpg)
+
+![Test Features](images/Testfeatures.jpg)
+
+---
+
+## 📊 Key Insights & Results
+
+### 🔥 Temperature Is King
+- For every **1°C increase**, demand rises by approximately **9.17 rentals per hour**
+
+### ❄️ Baseline Demand Exists
+- Even at **0°C**, the model predicts about **6 rentals per hour**
+
+### 🧩 Feature Drivers
+Beyond temperature, the strongest predictors include:
+- Weather conditions
+- Humidity
+- Working day vs holiday indicator
+
+These insights directly support **fleet planning and operational decision-making**.
+
+---
+
+## 💻 Tech Stack
+
+**Language**
+- Python
+
+**Libraries**
+- Pandas  
+- NumPy  
+- Scikit-Learn  
+- Seaborn  
+- Matplotlib  
+- Statsmodels  
+
+---
+
+## 🧠 Lessons Learned
+
+This project was intentionally challenging and highly educational:
+
+- Debugging datetime indexing for hourly time-series data
+- Detecting and resolving multicollinearity during EDA
+- Learning when statistical correctness outweighs feature quantity
+- Balancing simplicity, interpretability, and real-world usability
+
+These challenges strengthened my ability to build **production-ready analytical workflows**, not just academic models.
+
+---
+
+## 🚀 Next Steps
+
+- Compare performance with tree-based models (Random Forest, XGBoost)
+- Add lag features for time-series forecasting
+- Deploy results as an interactive dashboard for planners
+
+---
+
+📎 **Repository:**  
+https://github.com/yourexodus/mfrancis_datascience
