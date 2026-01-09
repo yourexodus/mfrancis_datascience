@@ -27,41 +27,41 @@ This project followed a rigorous end-to-end machine learning workflow, moving fr
 
 ---
 
-### 🔧 Data Preparation & Cleaning
+## 🔧 Data Preparation & Cleaning
 
 - Each row represents **one specific hour of one day**
 - Converted and formatted the datetime index for time-series analysis
 - Renamed the target variable to `total_rentals` for clarity and consistency
 
-![Rename Columns](images/renameColumns.jpg)
+![Rename Columns](linear_regression/images/renameColumns.jpg)
 
 ---
 
-### 🔍 Exploratory Data Analysis (EDA)
+## 🔍 Exploratory Data Analysis (EDA)
 
 EDA was used to uncover relationships between weather variables and bikeshare demand.
 
 - Scatter plots revealed linear trends between temperature and rentals
 - Heatmaps exposed correlation strength across features
 
-![Feature Correlation Heatmap](images/heatmap.jpg)
+![Feature Correlation Heatmap](linear_regression/images/heatmap.jpg)
 
-![Heatmap After Removing Highly Correlated Features](images/heatmapwithannot.jpg)
+![Heatmap After Removing Highly Correlated Features](linear_regression/images/heatmapwithannot.jpg)
 
-![Temperature vs Rentals Scatter Plot](images/scatterplot.jpg)
+![Temperature vs Rentals Scatter Plot](linear_regression/images/scatterplot.jpg)
 
-![Seaborn Regression Plot](images/seabornscatterplot.jpg)
+![Seaborn Regression Plot](linear_regression/images/seabornscatterplot.jpg)
 
 ---
 
-### ⚠️ The Multicollinearity Trap
+## ⚠️ The Multicollinearity Trap
 
 A critical issue surfaced during EDA:
 
 - `temp` and `atemp` (“feels like” temperature) were **highly correlated**
 - Including both violates linear regression assumptions
 
-![Feature Comparison](images/comparison.jpg)
+![Feature Comparison](linear_regression/images/comparison.jpg)
 
 ✅ **Resolution:**  
 One of the variables was removed to preserve statistical validity and model interpretability.
@@ -74,9 +74,9 @@ One of the variables was removed to preserve statistical validity and model inte
 - Chosen for its **high interpretability**, making feature impacts easy to explain to stakeholders
 - Trained on cleaned, non-collinear features
 
-![Final Feature Set](images/features.jpg)
+![Final Feature Set](linear_regression/images/features.jpg)
 
-![Test Features](images/Testfeatures.jpg)
+![Test Features](linear_regression/images/Testfeatures.jpg)
 
 ---
 
@@ -89,6 +89,7 @@ One of the variables was removed to preserve statistical validity and model inte
 - Even at **0°C**, the model predicts about **6 rentals per hour**
 
 ### 🧩 Feature Drivers
+
 Beyond temperature, the strongest predictors include:
 - Weather conditions
 - Humidity
@@ -104,12 +105,12 @@ These insights directly support **fleet planning and operational decision-making
 - Python
 
 **Libraries**
-- Pandas  
-- NumPy  
-- Scikit-Learn  
-- Seaborn  
-- Matplotlib  
-- Statsmodels  
+- Pandas
+- NumPy
+- Scikit-Learn
+- Seaborn
+- Matplotlib
+- Statsmodels
 
 ---
 
@@ -125,7 +126,6 @@ This project was intentionally challenging and highly educational:
 These challenges strengthened my ability to build **production-ready analytical workflows**, not just academic models.
 
 ---
-
 
 📎 **Repository:**  
 https://github.com/yourexodus/mfrancis_datascience
